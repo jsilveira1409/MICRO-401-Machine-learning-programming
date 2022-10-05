@@ -2,14 +2,8 @@ clear;
 clc;
 close all;
 
-% PATH
-addpath("functions/part1")
-addpath("evaluation_functions")
-addpath("evaluation_functions/part1")
-addpath("plot_functions")
-
 % DATA LOADING DO NOT MODIFY
-load fisheriris;
+load fisheriris22;
 X = meas';
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

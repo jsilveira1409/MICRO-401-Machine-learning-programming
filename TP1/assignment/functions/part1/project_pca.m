@@ -16,5 +16,9 @@ function [Y, Ap] = project_pca(X, Mu, V, p)
 %       o Ap       : (p x N), Projection Matrix.
 
 
+Ap = V[:,p]
+Y = Ap*X
+
+
 end
 
