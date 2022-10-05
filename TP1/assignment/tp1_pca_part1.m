@@ -3,7 +3,7 @@ clc;
 close all;
 
 % DATA LOADING DO NOT MODIFY
-load fisheriris22;
+load fisheriris;
 X = meas';
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -42,6 +42,10 @@ evaluate_reconstruction(Xhat, Yproj, Ap, Mu);
 
 % EVALUATION DO NOT MODIFY
 evaluate_error(err, X, Xhat);
+plot_scatter_matrix(X, {'sepal length','sepal width','petal length','petal width'}, "Original dataset");
+plot_scatter_matrix(Yproj, [], "Projection on eigenvectors with p=" + string(p));
+plot_eigenvalues(EigenValues);
+
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%        Task 5: Test your explained_variance.m function     %%

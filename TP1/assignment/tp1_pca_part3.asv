@@ -2,6 +2,11 @@ clear;
 clc;
 close all;
 
+% PATH
+addpath("functions/part1")
+addpath("functions/part3")
+addpath("evaluation_functions/part1")
+addpath("plot_functions")
 
 % data loading
 table = readtable("data/cryptocurrencies_prices.csv");
@@ -11,7 +16,7 @@ data = table2array(table)';
 %%        Task 9: Test your normalize.m function              %%
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-normalization = 'minmax';
+normalization = "minmax";
 [X, param1, param2] = normalize(data, normalization);
 
 %% PCA (DO NOT MODIFY)

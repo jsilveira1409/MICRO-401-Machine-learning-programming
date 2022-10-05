@@ -13,10 +13,14 @@ function [cr, compressedSize] = compression_rate(img,cimg,ApList,muList)
 %
 %       o cr : The compression rate
 %       o compressedSize : The size of the compressed elements
+s_Y = numel(cimg);
+s_Ap = numel(ApList);
+s_mu = numel(muList);
+s_img = numel(img);
+s_cimg = s_Y + s_Ap + s_mu;
+cr = 1- s_cimg/s_img;
 
-
-
-
+compressedSize = cr*s_cimg;
 % convert the size to megabits
 compressedSize = compressedSize / 1048576; 
 end

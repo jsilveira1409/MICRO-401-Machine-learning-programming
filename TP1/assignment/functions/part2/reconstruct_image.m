@@ -13,6 +13,14 @@ function [rimg] = reconstruct_image(cimg, ApList, muList)
 %
 %       o rimg : The reconstructed image
 
+channels = size(cimg,3);
+height = size(ApList,2);
+width = size(cimg, 2);
+
+rimg = zeros(height, width, channels);
+for i = 1:channels
+    rimg(:,:,i) = reconstruct_pca(cimg(:,:,i), ApList(:,:,i), muList(:, i));
+end
 
 end
 

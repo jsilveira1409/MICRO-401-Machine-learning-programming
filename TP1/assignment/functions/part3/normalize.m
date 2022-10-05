@@ -19,6 +19,29 @@ function [X, param1, param2] = normalize(data, normalization, param1, param2)
 %       o param1 : first parameter of the normalization
 %       o param2 : second parameter of the normalization
 
+if nargin == 2
+    recalculate = true;
+else
+    recalculate = false;
+end
 
+if strcmp(normalization, 'minmax')
+    if recalculate == true
+        param1 = min(data, [], 2);
+        param2 = max(data, [], 2);
+    end
+    X = (data.' - param1.' )/(param2.' - param1.');
+    X = X.';
+elseif strcmp(normalization, 'zscore')
+    if recalculate == true
+        param1 = mean(data.', 2);
+        param2 = std(data.', 0, 2);
+    end
+    X = (data.' - param1)/param2;
+    X = X';
+elseif strcmp(normalization, 'none')
+    X = data';
+else
+    X = data';
 end
 

@@ -11,7 +11,7 @@ function [err] = reconstruction_error(X, Xhat)
 %   output ----------------------------------------------------------------
 %
 %       o err   :  reconstruction error
-
+err = norm((X-Xhat),2)
 
 end
 

@@ -14,11 +14,11 @@ function [Y, Ap] = project_pca(X, Mu, V, p)
 %
 %       o Y        : (p x M), Projected data set with N samples each being of dimension k.
 %       o Ap       : (p x N), Projection Matrix.
+Ap = V(:,1:p)';
+Mu = mean(X, 2);                                      % Calculate mean vector
+X = X - Mu;                                            % Center data
 
-
-Ap = V[:,p]
-Y = Ap*X
-
+Y = Ap * X;
 
 end
 

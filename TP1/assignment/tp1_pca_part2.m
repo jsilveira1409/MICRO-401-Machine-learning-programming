@@ -2,12 +2,6 @@ clear;
 close all;
 clc;
 
-% PATH
-addpath("functions/part1")
-addpath("functions/part2")
-addpath("evaluation_functions")
-addpath("plot_functions")
-
 % Load 2D Testing Dataset for PCA
 img = imread("data/flower.ppm");
 img = im2double(img);
@@ -17,7 +11,6 @@ img = im2double(img);
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 p = 50;
-
 [cimg, ApList, muList] = compress_image(img,p);
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

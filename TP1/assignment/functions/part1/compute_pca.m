@@ -26,7 +26,7 @@ C = cov(X);
 % 3. Eigen Value Decomposition
 
 [EigenVectors, EigenValues] = eig(C);
-[EigenValues, index]  = sort(diag(EigenValues), 'descend')
+[EigenValues, index]  = sort(diag(EigenValues), 'descend');
 EigenVectors = EigenVectors(:,index);
 
 
