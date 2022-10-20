@@ -11,9 +11,8 @@ data = table2array(table)';
 %%        Task 9: Test your normalize.m function              %%
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-normalization = 'minmax';
+normalization = "zscore";
 [X, param1, param2] = normalize(data, normalization);
-
 %% PCA (DO NOT MODIFY)
 % PCA computation
 [Mu, Covariance, EigenVectors, EigenValues] = solution_compute_pca(X);

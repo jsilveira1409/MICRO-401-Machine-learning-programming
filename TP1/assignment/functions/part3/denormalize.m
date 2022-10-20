@@ -14,24 +14,10 @@ function [Xinversed] = denormalize(X, param1, param2, normalization)
 %   output ----------------------------------------------------------------
 %
 %       o Xinversed : (N x M), the denormalized data
-if nargin == 2
-    recalculate = true;
-else
-    recalculate = false;
-end
-
 if strcmp(normalization, 'minmax')
-    if recalculate == true
-        param1 = min(data, [], 2);
-        param2 = max(data, [], 2);
-    end
-   Xinversed = X*(param2 - param1) + param1;
+   Xinversed = X .* (param2 - param1) + param1;
  elseif strcmp(normalization, 'zscore')
-    if recalculate == true
-        param1 = mean(data, 2);
-        param2 = std(data, 2);
-    end
-   Xinversed = X*param2 + param1;
+   Xinversed = X .* param2 + param1;
 elseif strcmp(normalization, 'none')
     Xinversed = X;
 else

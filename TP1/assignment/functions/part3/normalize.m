@@ -29,19 +29,21 @@ if strcmp(normalization, 'minmax')
     if recalculate == true
         param1 = min(data, [], 2);
         param2 = max(data, [], 2);
+        size(param1)
     end
-    X = (data.' - param1.' )/(param2.' - param1.');
-    X = X.';
+    X = (data - param1 )./(param2 - param1);
 elseif strcmp(normalization, 'zscore')
     if recalculate == true
-        param1 = mean(data.', 2);
-        param2 = std(data.', 0, 2);
+        param1 = mean(data, 2);
+        param2 = std(data, 0, 2);
     end
-    X = (data.' - param1)/param2;
-    X = X';
+    X = (data - param1)./param2;    
 elseif strcmp(normalization, 'none')
-    X = data';
+    param1 = 0;
+    param2 = 0;
+    X = data;
 else
-    X = data';
+    param1 = 0;
+    param2 = 0;
+    X = data;
 end
-
