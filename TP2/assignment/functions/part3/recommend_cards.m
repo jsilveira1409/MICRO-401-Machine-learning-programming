@@ -14,6 +14,13 @@ function [cards] = recommend_cards(deck, Mu, type)
 %
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+dist = deck_distance(deck,Mu,type);
+[~, decks] = sort(dist,'ascend');
+
+cards = Mu(:,decks(1));
+cards = find(cards);
+cards = sort(cards,'descend');
+
 
 
 

@@ -17,11 +17,14 @@ function [F1_curve] =  f1measure_eval(X, K_range, repeats, init, type, MaxIter, 
 %   output ----------------------------------------------------------------
 %       o F1_curve   : (1 X K_range), F1 values for each value of K in K_range
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
-
+F1_curve = zeros(1,size(K_range,2));
+val = zeros(1,repeats);
+for k = K_range
+    for i = 1:repeats
+        [cluster_labels, ~, ~, ~] = kmeans(X, k, init, type, MaxIter, 0);
+         val(i) =  f1measure(cluster_labels, true_labels);
+    end
+    F1_curve(k) = mean(val);
+end
 
 end

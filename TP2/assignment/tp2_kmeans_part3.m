@@ -42,7 +42,7 @@ plot_iter = 0;
 deck = zeros(length(unique_cards),1);
 % try to add different cards
 deck(612) = 1;
-deck(36) = 4;
+deck(48) = 2;
 
 % add cards until the deck contains 60 cards
 while sum(deck) < 60

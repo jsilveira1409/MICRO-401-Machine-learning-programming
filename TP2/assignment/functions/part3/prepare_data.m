@@ -18,11 +18,19 @@ function [X, unique_cards] = prepare_data(data)
 %       array
 %
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+unique_cards = unique(data);
+N = size(unique_cards,1);
+cards_per_deck = size(data,1);
+M = size(data,2);
+X = zeros(N,M);
 
-
-
-
-
+for i = 1:N %iterate unique cards    = 642
+    for j = 1:M %iterate different decks = 777
+        for card = 1:cards_per_deck %iterate = 60
+            X(i,j) = X(i,j) + strcmp(data(card,j),unique_cards(i));
+        end
+    end
+end
 
 end
 

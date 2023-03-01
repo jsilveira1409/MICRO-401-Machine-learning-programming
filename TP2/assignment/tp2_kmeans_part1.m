@@ -54,7 +54,7 @@ evaluate_convergence();
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 K = 4;
 init='range';
-type='LInf';
+type='L1';
 MaxIter = 100;
 plot_iter = 1;
 [labels, Mu, ~] =  kmeans(X, K, init, type, MaxIter, plot_iter);

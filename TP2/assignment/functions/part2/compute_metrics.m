@@ -16,6 +16,21 @@ function [RSS, AIC, BIC] =  compute_metrics(X, labels, Mu)
 %       o AIC      : (1 x 1), Akaike Information Criterion
 %       o BIC      : (1 x 1), Bayesian Information Criteria
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[N,K] = size(Mu);
+M = size(X,2);
+%val = zeros(K,1);
+val = 0;
+for k=1:K
+    for i=1:M
+        if (labels(i) == k) 
+            val = (val + norm( X(:,i) - Mu(:,k) )^2);
+        end
+    end
+end
+
+RSS = val;
+AIC = RSS + 2*K*N;
+BIC = RSS + K*N*log(M);
 
 
 

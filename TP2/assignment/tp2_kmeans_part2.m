@@ -49,7 +49,7 @@ MaxIter = 100;
 
 % Plot Metric Curves
 plot_eval_curves(RSS_curve, AIC_curve, BIC_curve);
-
+%3 clusters? according to BIC
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%        Task 8 F1 measure                                   %%
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
